@@ -1,8 +1,9 @@
 /* 
  * Coder: Angela Pang
  * 
- * Assignment: CIS4500 Week 2 - Visibility (Candy 4 Aliens)
- * Date: 2015/01/23
+ * Assignment: CIS4500 Week 3 - Shooting (Plant Invasion)
+ * Date: 2015/01/14
+ * Modified: 2015/02/02
  * 
  * Filename: imageLib.js
  * 
@@ -25,6 +26,12 @@ function imageLib(canvasName, width, height, xPos, yPos) {
     this.oldPosX = xPos;
     this.oldPosY = yPos;
     
+    /*Original Start and End Position*/
+    this.startX = xPos;
+    this.startY = yPos;
+    this.endX = null;
+    this.endY = null;
+       
     this.image = "";
     this.repeatHor = false;
     this.repeatVer = false;
@@ -34,6 +41,10 @@ function imageLib(canvasName, width, height, xPos, yPos) {
     this.spaceBuffer = 0;
     
     this.visible = true;
+    
+    /*Drawing a line*/
+    this.lineWidth = 5;
+    this.strokeStyle = "black";
 };
 
 imageLib.prototype.addImg = function(image) {
@@ -107,9 +118,69 @@ imageLib.prototype.backgroundRepeat = function() {
             this.xPos = this.canvas.width;
         }
     }
-}
+};
+
+imageLib.prototype.drawLine = function() {
+    /*backgroundImg.canvasCtx.beginPath();
+    backgroundImg.canvasCtx.fillStyle="#0000ff";
+    // Draws a circle of radius 20 at the coordinates 100,100 on the canvas
+    backgroundImg.canvasCtx.arc(x,y,10,0,Math.PI*2,true);
+    backgroundImg.canvasCtx.closePath();
+    backgroundImg.canvasCtx.fill();*/    
+    
+    
+    this.canvasCtx.beginPath();
+    this.canvasCtx.lineWidth= this.lineWidth;
+    this.canvasCtx.strokeStyle= this.strokeStyle; //Setting path colour
+    
+    /*Draw out the path*/
+    this.canvasCtx.moveTo(this.startX,this.startY);
+    this.canvasCtx.lineTo(this.endX,this.endY);
+    this.canvasCtx.stroke(); 
+};
+
+imageLib.prototype.drawProjectile = function() {
+    /*Clear the canvas*/
+    //backgroundImg.clearCanvas();
+    var radius = 10;
+    
+    this.canvasCtx.beginPath();
+    this.canvasCtx.fillStyle="#0000ff";
+    // Draws a circle of radius 20 at the coordinates 100,100 on the canvas
+    //backgroundImg.canvasCtx.arc(x,y,10,0,Math.PI*2,true);
+    this.canvasCtx.arc(this.xPos,this.yPos,radius,0,Math.PI*2,true);
+    this.canvasCtx.closePath();
+    this.canvasCtx.fill();
+    
+    // Boundary Logic
+    /*if( x<0 || x>300) dx=-dx; 
+    if( y<0 || y>300) dy=-dy; 
+    x+=dx; 
+    y+=dy;   */
+    
+    
+    this.xPos += this.dx;
+    this.yPos += this.dy;
+    
+};
         
-imageLib.prototype.intersect =  function(image) {   //function(cx1, x1, x2, y1, y2) { 
+imageLib.prototype.shapeToShapeIntersect = function(image) {
+    /*Store all the shape's pixel*/
+    /*Determine if the shape intersects with any of th shape's borders*/
+    
+    
+    /**/
+    
+    /*Determine if any of the pixels intersect*/
+};
+        
+imageLib.prototype.imgToShapeIntersect = function(image) {
+    /*Store all the shape's pixel*/
+    
+    /*Determine if any of the pixels intersect*/
+};
+
+imageLib.prototype.intersect =  function(image) {   
     var x1 = image.xPos;
     var x2 = image.xPos + image.width;
     var y1 = image.yPos;
@@ -121,3 +192,5 @@ imageLib.prototype.intersect =  function(image) {   //function(cx1, x1, x2, y1, 
     
     return false;
 };
+
+

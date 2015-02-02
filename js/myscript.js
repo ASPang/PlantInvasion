@@ -1,9 +1,9 @@
 /* 
  * Coder: Angela Pang
  * 
- * Assignment: CIS4500 Week 2 - Visibility (Candy 4 Aliens)
+ * Assignment: CIS4500 Week 3 - Shooting (Plant Invasion)
  * Date: 2015/01/14
- * Modified: 2015/01/27
+ * Modified: 2015/02/02
  * 
  * Filename: myscripts.js
  * 
@@ -51,15 +51,40 @@ function setupCanvas() {
     backgroundImg = new imageLib(gameCanvas, 50, 400, 50, 0);
     
     
+    
     /*Add background image to canvas*/
-    backgroundImg.repeatHor = true; //Repeat the background
-    backgroundImg.addImg(gameImage.loadedImg["background1"]);
+//    backgroundImg.repeatHor = true; //Repeat the background
+//    backgroundImg.addImg(gameImage.loadedImg["background1"]);
     
     /*Draw the character on the screen*/
-    setupCharacter(gameCanvas);
-    addAliens(gameCanvas);
-    addCandy(gameCanvas);
+//    setupCharacter(gameCanvas);
+//    addAliens(gameCanvas);
+//    addCandy(gameCanvas);
+
+    /*Draw obstacles*/
+    
+    
+    //setInterval(backgroundImg.drawProjectile(),4);
+    backgroundImg.dx = -1;
+    backgroundImg.dy = 0.5;
+    backgroundImg.xPos = 150;
+    backgroundImg.yPos = 150;
+    //backgroundImg.drawProjectile();
+    
+    
+    backgroundImg.startX = 0;
+    backgroundImg.startY = 250;
+    backgroundImg.endX = 300,
+    backgroundImg.endY = 600;
+    backgroundImg.drawLine();
+    
+    setInterval(function(){backgroundImg.drawProjectile();},4);
+    setInterval(function(){backgroundImg.canvasWallBounce();},4);
 }
+
+
+
+
 
 function setupCharacter(gameCanvas) {
     /*Size of character*/

@@ -19,16 +19,16 @@ var numGamePlay = 0;
 var milSec = 1000;
 
 
-function startTimer() {
-   clearInterval(gameTimer);
-   startClock = new Date().getTime();
-   var oneSec = 30;
- 
-   gameTimer = setInterval(function(){updateGame();}, oneSec);     
- 
-    /*Initiate game*/
-    initGame();
-    endGameFlag = false;    
+function startTimer() { //TESTING!!!!!!!!!!!! - DISABLED FOR DEVELOPMENT
+//   clearInterval(gameTimer);
+//   startClock = new Date().getTime();
+//   var oneSec = 30;
+// 
+//   gameTimer = setInterval(function(){updateGame();}, oneSec);     
+// 
+//    /*Initiate game*/
+//    initGame();
+//    endGameFlag = false;    
 }
 
 

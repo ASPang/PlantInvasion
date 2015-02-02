@@ -1,9 +1,9 @@
 /* 
  * Coder: Angela Pang
  * 
- * Assignment: CIS4500 Week 2 - Visibility (Candy 4 Aliens)
+ * Assignment: CIS4500 Week 3 - Shooting (Plant Invasion)
  * Date: 2015/01/14
- * Modified: 2015/01/27
+ * Modified: 2015/02/02
  * 
  * Filename: keyboard.js
  * 
@@ -25,7 +25,7 @@ function keyDownEvent(e) {
     var avl;    //Non-empty space
     var noBlock;    //Empty Space
     
-    e.preventDefault();
+    //e.preventDefault();   //TESTING!!!! - DISABLED DURING DEVELOPMENT
     
     /*Determine if the game over flag as been set*/
     if (endGameFlag == true) { 
