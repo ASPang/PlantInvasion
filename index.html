@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <title>Plant Invasion</title>
+      <meta name="description" content="Destroy all plants." />
+
+      <!-- Stylesheets -->
+      <link href="css/styles.css" rel="stylesheet" type="text/css" />
+
+      <!-- jQuery - Enables the carousel to displayed on the page -->
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+   </head>
+
+   <body>
+      <!-- Inform the user to enable JavaScript if it's disabled -->
+      <noscript><h1>Please enable JavaScript</h1></noscript>
+      <div id="content">
+         <div id="gameContent">            
+            <!-- Game Information Display --> 
+            <div class="gameMenuDiv">
+               <!-- Game Title -->
+               <h1>PlanInvasion</h1>
+            </div>
+
+            <!-- Canvas -->
+            <canvas id="gameCanvas" width="600" height="500">Your browser does not support the HTML5 canvas tag.</canvas>
+            
+            
+            <!-- Start Button -->
+            <div id="gameStartDiv">
+               <button id="startButton" onclick="startTimer();" onfocus="this.blur()">Start Game</button>
+            </div>
+            
+         </div>
+         
+      </div>
+      
+      <hr>
+      
+      <!-- Game Instruction Section -->
+      <div id="infoDiv">
+         <h4>Candy 4 Aliens Instructions</h4>
+
+         <!-- How To 
+         <h5>How To Start:</h5>
+         <p>To start the game click the "Start Game" button below the game window.</p>
+         -->
+         <!-- Controls 
+         <h5>Controls</h5>
+          Use the keyboard arrow keys to move around the game window
+         <ul>
+            <li>
+               Right Arrow Key - Move your character right;
+            </li>
+            <li>
+               Left Arrow Key - Move your character Left;
+            </li>
+            <li>
+               Up Arrow Key - Use the up arrow key to jump. 
+            </li>
+            
+         </ul>
+         -->
+         <!-- Game play 
+         <h5>Game Play</h5>
+         <p>
+            Don't get abducted by aliens, that is the goal of the game. Try to survive
+            through invasion as long as possible. Death is unavoidable but the candy seems to
+            kill off the aliens and prolong your survival.
+         </p>
+         <p>
+            
+         </p>
+         -->
+         <!-- Characters and Items 
+         <h5>Characters</h5>
+         <div id="characterDiv">
+         
+         
+            <table style="width:100%">
+              <tr>
+                <td>
+                  <img src="img/character.png" height="100" width="auto" />
+                </td>
+                <td>
+                  <img src="img/alien1.png" />
+                </td>
+                <td>
+                  <img src="img/candy.png" />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Player</b>
+                  <br>
+                  A child who is trying to survive an alien invasion. 
+                  His only defence is his card board box and his kitchen helmet.
+                </td>
+                <td>
+                  <b>Alien</b>
+                  <br>
+                  Avoid them at all cost when you DON'T have "Power Up" activated from eatting candy.
+                  
+                </td>
+                <td>
+                  <b>Candy</b>
+                  <br>
+                  Mysteriously laying around the street and aliens die when you consume them.
+                </td>
+              </tr>
+            </table> 
+         </div>
+         -->
+      </div>
+
+      <!-- JavaScript -->
+      <script type="text/javascript" src="js/variableList.js"></script>
+      <script type="text/javascript" src="js/myscript.js"></script>
+      <script type="text/javascript" src="js/keyboard.js"></script>
+      <script type="text/javascript" src="js/blockPieces.js"></script>
+      <script type="text/javascript" src="js/gameTimer.js"></script>
+      
+      <script type="text/javascript" src="js/imageLib.js"></script>
+      <script type="text/javascript" src="js/physicMechanics.js"></script>
+      <script type="text/javascript" src="js/intersections.js"></script>
+      
+   </body>
+</html>
