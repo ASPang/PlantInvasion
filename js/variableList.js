@@ -30,7 +30,11 @@ var points = 0;
 var powerUp = 0;
 var powerUpEnd = 7;
 
+/*Obstacles*/
+var path = [];
 
+/*Projectile Information*/
+var projectile = [];
 
 
 

@@ -61,28 +61,33 @@ function setupCanvas() {
 //    addAliens(gameCanvas);
 //    addCandy(gameCanvas);
 
-    /*Draw obstacles*/
+    
+    /*Testing projectiless*/
+//    backgroundImg.dx = -1;
+//    backgroundImg.dy = 0.5;
+//    backgroundImg.xPos = 150;
+//    backgroundImg.yPos = 150;
+    //setInterval(function(){backgroundImg.canvasWallBounce();},4);
+    
+    /*Drawing out paths in the game*/
+    setupObstacles();
     
     
-    //setInterval(backgroundImg.drawProjectile(),4);
-    backgroundImg.dx = -1;
-    backgroundImg.dy = 0.5;
-    backgroundImg.xPos = 150;
-    backgroundImg.yPos = 150;
-    //backgroundImg.drawProjectile();
     
-    
-    backgroundImg.startX = 0;
-    backgroundImg.startY = 250;
-    backgroundImg.endX = 300,
-    backgroundImg.endY = 600;
-    backgroundImg.drawLine();
-    
-    setInterval(function(){backgroundImg.drawProjectile();},4);
-    setInterval(function(){backgroundImg.canvasWallBounce();},4);
 }
 
 
+function setupObstacles() {
+    path[0] = new imageLib(backgroundImg.canvasName, 0, 0, -10, 250);
+    path[0].endX = 300,
+    path[0].endY = 600;
+    path[0].drawLine();
+
+    path[1] = new imageLib(backgroundImg.canvasName, 0, 0, backgroundImg.canvas.width + 10, 250);
+    path[1].endX = 300; 
+    path[1].endY = 600;
+    path[1].drawLine();
+}
 
 
 

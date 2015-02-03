@@ -43,8 +43,14 @@ function imageLib(canvasName, width, height, xPos, yPos) {
     this.visible = true;
     
     /*Drawing a line*/
-    this.lineWidth = 5;
+    this.lineWidth = 10;
     this.strokeStyle = "black";
+    
+    /*Drawing a circle*/
+    this.radius = 5;
+    
+    /*Colour*/
+    this.fillStyle = "#0000ff"; 
 };
 
 imageLib.prototype.addImg = function(image) {
@@ -142,10 +148,10 @@ imageLib.prototype.drawLine = function() {
 imageLib.prototype.drawProjectile = function() {
     /*Clear the canvas*/
     //backgroundImg.clearCanvas();
-    var radius = 10;
+    var radius = this.radius;
     
     this.canvasCtx.beginPath();
-    this.canvasCtx.fillStyle="#0000ff";
+    this.canvasCtx.fillStyle= this.fillStyle;
     // Draws a circle of radius 20 at the coordinates 100,100 on the canvas
     //backgroundImg.canvasCtx.arc(x,y,10,0,Math.PI*2,true);
     this.canvasCtx.arc(this.xPos,this.yPos,radius,0,Math.PI*2,true);

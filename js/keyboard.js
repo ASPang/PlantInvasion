@@ -29,13 +29,16 @@ function keyDownEvent(e) {
     
     /*Determine if the game over flag as been set*/
     if (endGameFlag == true) { 
-      return false;
+      //return false; //TESTING!!!! - DISABLED DURING DEVELOPMENT
     }
     
     /*Determine which key is pressed*/
     switch (e.keyCode) {
         case 32:
             // Space key pressed
+            
+            spaceBarKeyEvent();
+            
             break;
         case 37:
             // left key pressed
@@ -110,4 +113,16 @@ function leftArrowKeyEvent() {
     
     /*Update the game window*/
     updateGame();
+}
+
+
+function spaceBarKeyEvent() {
+    /*Draw the projectile*/
+    var newProj = new physics(backgroundImg.canvasName, 10, 10, 150, 275);
+    newProj.dx = -1;
+    newProj.dy = 1;
+    
+    projectile.push(newProj);
+    projectile.reverse();
+    setInterval(function(){projectile[0].drawProjectile();},4);
 }

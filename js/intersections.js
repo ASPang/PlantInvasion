@@ -12,7 +12,11 @@
  * 
  */
  
-function checkIntersection() {
+function checkObstacles() {
+    
+}
+
+function checkIntersection2() {
     var i, touch;  //loop counter
     
     /*Go through all the enemies to see if they intersect*/
