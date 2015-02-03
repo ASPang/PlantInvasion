@@ -25,9 +25,6 @@ function initGame() {
      
     /*Display the board*/
     setupCanvas();
-    
-    /*TESTING!!!!!!! --  SHOULDN'T BE HERE*/
-    startTimer();
 }
 
 /*Initialize the canvas*/
@@ -36,8 +33,6 @@ function setupCanvas() {
     c = document.getElementById("gameCanvas");
     ctx = c.getContext("2d");
 }
-
-
 
 function preloadGameImages() {   
     gameImage = new preloadImages()
@@ -53,31 +48,15 @@ function setupCanvas() {
     var gameCanvas = "gameCanvas";
     backgroundImg = new imageLib(gameCanvas, 50, 400, 50, 0);
     
-    
-    
     /*Add background image to canvas*/
-//    backgroundImg.repeatHor = true; //Repeat the background
     backgroundImg.addImg(gameImage.loadedImg["background"]);
     
     /*Draw the character on the screen*/
     setupCharacter(gameCanvas);
     addEnemy(gameCanvas);
-//    addAliens(gameCanvas);
-//    addCandy(gameCanvas);
-
-    
-    /*Testing projectiless*/
-//    backgroundImg.dx = -1;
-//    backgroundImg.dy = 0.5;
-//    backgroundImg.xPos = 150;
-//    backgroundImg.yPos = 150;
-    //setInterval(function(){backgroundImg.canvasWallBounce();},4);
     
     /*Drawing out paths in the game*/
     setupObstacles();
-    
-    
-    
 }
 
 
@@ -89,15 +68,13 @@ function setupObstacles() {
     path[0].slopeY = 3410/13;
     path[0].drawLine();
 
-    path[1] = new imageLib(backgroundImg.canvasName, 0, 0, backgroundImg.canvas.width + 10, 250);
-    path[1].endX = 480; 
-    path[1].endY = 410;
+    path[1] = new imageLib(backgroundImg.canvasName, 0, 0, 0, 0);
+    path[1].endX = 0; 
+    path[1].endY = 0;
     path[1].slopeX = -16/13;
     path[1].slopeY = 3410/13;
     path[1].drawLine();
 }
-
-
 
 function setupCharacter(gameCanvas) {
     /*Size of character*/
@@ -107,12 +84,37 @@ function setupCharacter(gameCanvas) {
     /*Add the character to the canvas*/
     character = new physics(gameCanvas, width, height, 275, 210);
     character.addImg(gameImage.loadedImg["ship"]);
+}
+
+function addEnemy(gameCanvas) {
+    /*Size of plants*/
+    var height = 30;
+    var width = 15;
     
-    /*Establishing character jumping capabilities*/
-    //character.jumpHeight = 100;
-    //character.ground = character.canvas.height - character.height;
-    //character.jumpSpeed = 2;
-    //character.fallSpeed = 2;
+    enemy[0] = new physics(gameCanvas, width, height, 50, 100);
+    enemy[0].addImg(gameImage.loadedImg["plant"]);
+    enemy[0].dx = 1;
+    enemy[0].dy = -0.2;
+    
+    enemy[1] = new physics(gameCanvas, width, height, 50, -100);
+    enemy[1].addImg(gameImage.loadedImg["plant"]);
+    enemy[1].dx = 1;
+    enemy[1].dy = -0.2;
+    
+    enemy[2] = new physics(gameCanvas, width, height, 100, 30);
+    enemy[2].addImg(gameImage.loadedImg["plant"]);
+    enemy[2].dx = 1;
+    enemy[2].dy = -0.2;
+    
+    enemy[3] = new physics(gameCanvas, width, height, 550, 200);
+    enemy[3].addImg(gameImage.loadedImg["plant"]);
+    enemy[3].dx = 1.5;
+    enemy[3].dy = -0.2;
+    
+    enemy[4] = new physics(gameCanvas, width, height, 50, -300);
+    enemy[4].addImg(gameImage.loadedImg["plant"]);
+    enemy[4].dx = 2;
+    enemy[4].dy = -1;
 }
 
 function addAliens(gameCanvas) {
@@ -133,17 +135,6 @@ function addAliens(gameCanvas) {
     
     aliens[3] = new physics(gameCanvas, alienWidth, alienHeight, 100, 150);
     aliens[3].addImg(gameImage.loadedImg["alien1"]);
-}
-
-function addEnemy(gameCanvas) {
-    /*Size of plants*/
-    var height = 30;
-    var width = 15;
-    
-    enemy[0] = new physics(gameCanvas, width, height, 50, 100);
-    enemy[0].addImg(gameImage.loadedImg["plant"]);
-    enemy[0].dx = 1;
-    enemy[0].dy = -0.2;
 }
 
 function addCandy(gameCanvas) {

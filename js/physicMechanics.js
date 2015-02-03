@@ -1,8 +1,9 @@
 /* 
  * Coder: Angela Pang
  * 
- * Assignment: CIS4500 Week 2 - Visibility (Candy 4 Aliens)
- * Date: 2015/01/23
+ * Assignment: CIS4500 Week 3 - Shooting (Plant Invasion)
+ * Date: 2015/01/14
+ * Modified: 2015/02/02
  * 
  * Filename: physicMechanics.js
  * 
@@ -29,8 +30,6 @@ function physics(canvasName, width, height, xPos, yPos) {
     var jumping = false;  
     
     /*Direction Variables*/
-    /*this.oriStartX = xPos;
-    this.oriStartY = yPos;*/
     this.dx = 0;
     this.dy = 0;
     
@@ -59,13 +58,6 @@ physics.prototype.gravity = function() {
         this.redraw(this.xPos, this.yPos + this.jumpSpeed);
     }
 };
-
-/*
-    var x = 150;
-    var y = 150;
-    var dx = -0.5;
-    var dy = 1;
-*/
 
 physics.prototype.obstaclebounce = function(obstacle) {
     var x = 0, y = 0;

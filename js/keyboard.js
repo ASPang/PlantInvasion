@@ -29,7 +29,7 @@ function keyDownEvent(e) {
     
     /*Determine if the game over flag as been set*/
     if (endGameFlag == true) { 
-      //return false; //TESTING!!!! - DISABLED DURING DEVELOPMENT
+      return false; //TESTING!!!! - DISABLED DURING DEVELOPMENT
     }
     
     /*Determine which key is pressed*/
@@ -123,8 +123,8 @@ function leftArrowKeyEvent() {
 function spaceBarKeyEvent() {
     /*Draw the projectile*/
     var newProj = new physics(backgroundImg.canvasName, 10, 10, character.xPos+25, 275);
-    newProj.dx = -1;
-    newProj.dy = 1;
+    newProj.dx = -2;
+    newProj.dy = 2;
     newProj.floor = backgroundImg.canvas.height;
 //    newProj.ceiling = 0;
 //    newProj.rightWall = backgroundImg.canvas.width;

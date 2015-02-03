@@ -1,9 +1,9 @@
 /* 
  * Coder: Angela Pang
  * 
- * Assignment: CIS4500 Week 2 - Visibility (Candy 4 Aliens)
+ * Assignment: CIS4500 Week 3 - Shooting (Plant Invasion)
  * Date: 2015/01/14
- * Modified: 2015/01/27
+ * Modified: 2015/02/02
  * 
  * Filename: gameTimer.js
  * 
@@ -20,21 +20,22 @@ var milSec = 1000;
 
 
 function startTimer() { //TESTING!!!!!!!!!!!! - DISABLED FOR DEVELOPMENT
-//   clearInterval(gameTimer);
+   clearInterval(gameTimer);
 //   startClock = new Date().getTime();
    var oneSec = 30;
+   setInterval(function(){updateGame();}, oneSec);     
 // 
 //   gameTimer = setInterval(function(){updateGame();}, oneSec);     
 // 
 //    /*Initiate game*/
-//    initGame();
-//    endGameFlag = false;
-    setInterval(function(){updateGame();}, oneSec);     
+    initGame();
+    endGameFlag = false;
+    
 }
 
 
 function updateGame() {
-//    var i;  //Loop counter
+    var i;  //Loop counter
 //    var countDownTime = 60;
     
     /*Calculate time lapse*/
@@ -49,9 +50,9 @@ function updateGame() {
     redrawPaths();
     
     /*Draw gameplay information*/
-//    backgroundImg.canvasCtx.fillStyle = "yellow";
-//    backgroundImg.canvasCtx.font = "bold 14px Arial";
-//    backgroundImg.canvasCtx.fillText("Survival Time: " + timeRemaining + " Seconds", 1, 14);
+    backgroundImg.canvasCtx.fillStyle = "Black";
+    backgroundImg.canvasCtx.font = "bold 16px Arial";
+    backgroundImg.canvasCtx.fillText("Score: " + points, backgroundImg.canvas.width / 2 - 30, 16);
     
     /*Draw the character*/
 //    character.jump();
@@ -69,23 +70,25 @@ function updateGame() {
 //    checkIntersection();
 //    foundCandy();
     checkObstacles();
+    characterHit();
     
     /*Determine if the game over flag as been set*/
-//    if (endGameFlag == true) { //|| timeRemaining <= 0) {
-//        clearInterval(gameTimer);
-//                
-//        /*Show all aliens*/ 
-//        for (i = 0; i< aliens.length; i++) {                        
-//            aliens[i].redraw(aliens[i].xPos, aliens[i].yPos);
-//        }
-//        
-//        /*Inform the user that they lost*/
-//        backgroundImg.canvasCtx.fillStyle = "red";
-//        backgroundImg.canvasCtx.font = "bold 60px Arial";
-//        backgroundImg.canvasCtx.fillText("GAME OVER", 125, 160);
-//        backgroundImg.canvasCtx.font = "bold 30px Arial";
-//        backgroundImg.canvasCtx.fillText("Survival Time: " + timeRemaining + " Seconds", 125, 220);
-//    }
+    if (endGameFlag == true) { //|| timeRemaining <= 0) {
+        clearInterval(gameTimer);
+                
+        /*Disable all enemies*/ 
+        for (i = 0; i< enemy.length; i++) {                        
+            enemy[i].dx = 0;
+            enemy[i].dy = 0;
+        }
+        
+        /*Inform the user that they lost*/
+        backgroundImg.canvasCtx.fillStyle = "red";
+        backgroundImg.canvasCtx.font = "bold 60px Arial";
+        backgroundImg.canvasCtx.fillText("GAME OVER", 125, 160);
+        backgroundImg.canvasCtx.font = "bold 30px Arial";
+        //backgroundImg.canvasCtx.fillText("Survival Time: " + timeRemaining + " Seconds", 125, 220);
+    }
 }
 
 function moveEnemies() {

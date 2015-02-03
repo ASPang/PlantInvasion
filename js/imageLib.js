@@ -128,15 +128,7 @@ imageLib.prototype.backgroundRepeat = function() {
     }
 };
 
-imageLib.prototype.drawLine = function() {
-    /*backgroundImg.canvasCtx.beginPath();
-    backgroundImg.canvasCtx.fillStyle="#0000ff";
-    // Draws a circle of radius 20 at the coordinates 100,100 on the canvas
-    backgroundImg.canvasCtx.arc(x,y,10,0,Math.PI*2,true);
-    backgroundImg.canvasCtx.closePath();
-    backgroundImg.canvasCtx.fill();*/    
-    
-    
+imageLib.prototype.drawLine = function() {  
     this.canvasCtx.beginPath();
     this.canvasCtx.lineWidth= this.lineWidth;
     this.canvasCtx.strokeStyle= this.strokeStyle; //Setting path colour
@@ -152,41 +144,18 @@ imageLib.prototype.drawProjectile = function() {
     
     this.canvasCtx.beginPath();
     this.canvasCtx.fillStyle= this.fillStyle;
-    // Draws a circle of radius 20 at the coordinates 100,100 on the canvas
-    //backgroundImg.canvasCtx.arc(x,y,10,0,Math.PI*2,true);
     this.canvasCtx.arc(this.xPos,this.yPos,radius,0,Math.PI*2,true);
     this.canvasCtx.closePath();
-    this.canvasCtx.fill();
-    
-    // Boundary Logic
-    /*if( x<0 || x>300) dx=-dx; 
-    if( y<0 || y>300) dy=-dy; 
-    x+=dx; 
-    y+=dy;   */
-    
+    this.canvasCtx.fill();    
     
     this.xPos += this.dx;
     this.yPos += this.dy;
     
-};
-        
-imageLib.prototype.shapeToShapeIntersect = function(image) {
-    /*Store all the shape's pixel*/
-    /*Determine if the shape intersects with any of th shape's borders*/
-    
-    
-    /**/
-    
-    /*Determine if any of the pixels intersect*/
-};
-        
-imageLib.prototype.imgToShapeIntersect = function(image) {
-    /*Store all the shape's pixel*/
-    
-    /*Determine if any of the pixels intersect*/
+    this.width = radius;
+    this.height = radius;
 };
 
-imageLib.prototype.intersect =  function(image) {   
+imageLib.prototype.intersect =  function(image) { 
     var x1 = image.xPos;
     var x2 = image.xPos + image.width;
     var y1 = image.yPos;

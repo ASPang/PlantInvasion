@@ -1,9 +1,9 @@
 /* 
  * Coder: Angela Pang
  * 
- * Assignment: CIS4500 Week 2 - Visibility (Candy 4 Aliens)
+ * Assignment: CIS4500 Week 3 - Shooting (Plant Invasion)
  * Date: 2015/01/14
- * Modified: 2015/01/27
+ * Modified: 2015/02/02
  * 
  * Filename: variableList.js
  * 
