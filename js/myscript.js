@@ -108,12 +108,12 @@ function addEnemy(gameCanvas) {
     
     enemy[3] = new physics(gameCanvas, width, height, 550, 200);
     enemy[3].addImg(gameImage.loadedImg["plant"]);
-    enemy[3].dx = 1.5;
+    enemy[3].dx = 1;
     enemy[3].dy = -0.2;
     
     enemy[4] = new physics(gameCanvas, width, height, 50, -300);
     enemy[4].addImg(gameImage.loadedImg["plant"]);
-    enemy[4].dx = 2;
+    enemy[4].dx = 1.5;
     enemy[4].dy = -1;
 }
 

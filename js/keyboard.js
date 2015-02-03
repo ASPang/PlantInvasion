@@ -35,8 +35,7 @@ function keyDownEvent(e) {
     /*Determine which key is pressed*/
     switch (e.keyCode) {
         case 32:
-            // Space key pressed
-            
+            // Space key pressed            
             spaceBarKeyEvent();
             
             break;
@@ -89,13 +88,9 @@ function upArrowKeyEvent() {
 function rightArrowKeyEvent() {
     var move = 4;
     
-    /*Move background image 5 pixels*/
-    //backgroundImg.redraw(backgroundImg.xPos - move, backgroundImg.yPos);
+    /*Move character image*/
     character.redraw(character.xPos + move, character.yPos);
-    //candy.redraw(candy.xPos - move, candy.yPos);
-    
-    /*Update alien x Position*/
-    moveAliens(4);
+    character.stopWallCollision();
     
     /*Update the game window*/
     updateGame();
@@ -105,15 +100,9 @@ function rightArrowKeyEvent() {
 function leftArrowKeyEvent() {
     var move = 4;
     
-    /*Move background image 5 pixels*/
-    //backgroundImg.redraw(backgroundImg.xPos + move, backgroundImg.yPos);
+    /*Move character image*/
     character.redraw(character.xPos - move, character.yPos);
-    //candy.redraw(candy.xPos + move, candy.yPos);
-    
-     
-    /*Update alien x Position*/
-    //moveAliens(-3);
-    //moveCharacter(-5);
+    character.stopWallCollision();
     
     /*Update the game window*/
     updateGame();
@@ -126,13 +115,7 @@ function spaceBarKeyEvent() {
     newProj.dx = -2;
     newProj.dy = 2;
     newProj.floor = backgroundImg.canvas.height;
-//    newProj.ceiling = 0;
-//    newProj.rightWall = backgroundImg.canvas.width;
-//    newProj.leftWall = 0;
     
     projectile.push(newProj);
-    //projectile.reverse();
-    
-    //setInterval(function(){checkObstacles();},4);
     updateGame();
 }

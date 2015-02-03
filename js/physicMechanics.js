@@ -128,4 +128,24 @@ physics.prototype.canvasWallCollision = function() {
 };
 
 
-
+physics.prototype.stopWallCollision = function() {
+    var leftWall = 0;
+    var rightWall = this.canvas.width;
+    var floor = this.canvas.height;
+    var ceiling = 0;
+    
+    if ( this.xPos < leftWall) {
+        this.xPos = 0;
+    }
+    else if (this.xPos > rightWall) {
+        this.xPos = this.canvas.width - this.width;
+    } 
+    else if (this.yPos < ceiling) {
+        this.yPos = 0;
+    }
+    else if (this.yPos > floor) {
+        this.yPos = this.canvas.height - this.height;
+    }
+    
+    return "null";
+};

@@ -19,15 +19,14 @@ var numGamePlay = 0;
 var milSec = 1000;
 
 
-function startTimer() { //TESTING!!!!!!!!!!!! - DISABLED FOR DEVELOPMENT
-   clearInterval(gameTimer);
-//   startClock = new Date().getTime();
+function startTimer() { 
+   clearInterval(gameTimer);   
+   startClock = new Date().getTime();
+   
    var oneSec = 30;
    setInterval(function(){updateGame();}, oneSec);     
-// 
-//   gameTimer = setInterval(function(){updateGame();}, oneSec);     
-// 
-//    /*Initiate game*/
+
+    /*Initiate game*/
     initGame();
     endGameFlag = false;
     
@@ -36,12 +35,7 @@ function startTimer() { //TESTING!!!!!!!!!!!! - DISABLED FOR DEVELOPMENT
 
 function updateGame() {
     var i;  //Loop counter
-//    var countDownTime = 60;
     
-    /*Calculate time lapse*/
-    //var timeRemaining = Math.round(countDownTime - (new Date().getTime() - startClock) / milSec);
-//    var timeRemaining = Math.round((new Date().getTime() - startClock) / milSec);
-
     /*Clear the canvas*/
     backgroundImg.clearCanvas();
     
@@ -55,25 +49,17 @@ function updateGame() {
     backgroundImg.canvasCtx.fillText("Score: " + points, backgroundImg.canvas.width / 2 - 30, 16);
     
     /*Draw the character*/
-//    character.jump();
     character.redraw(character.xPos, character.yPos);
-
-    /*Draw the candy*/
-//    candyTime();
-//    candy.redraw(candy.xPos, candy.yPos);
     
     /*Update Emeny position*/
-//    moveAliens(2);
     moveEnemies();
         
     /*Check if the image intersects with anything on the canvas*/
-//    checkIntersection();
-//    foundCandy();
     checkObstacles();
     characterHit();
     
     /*Determine if the game over flag as been set*/
-    if (endGameFlag == true) { //|| timeRemaining <= 0) {
+    if (endGameFlag == true) { 
         clearInterval(gameTimer);
                 
         /*Disable all enemies*/ 
@@ -87,7 +73,7 @@ function updateGame() {
         backgroundImg.canvasCtx.font = "bold 60px Arial";
         backgroundImg.canvasCtx.fillText("GAME OVER", 125, 160);
         backgroundImg.canvasCtx.font = "bold 30px Arial";
-        //backgroundImg.canvasCtx.fillText("Survival Time: " + timeRemaining + " Seconds", 125, 220);
+        backgroundImg.canvasCtx.fillText("Final Score: " + points, 220, 220);
     }
 }
 
@@ -195,3 +181,18 @@ function redrawPaths() {
         path[i].drawLine();
     }
 }
+
+function clearBoard() {
+    var i = 0;
+    
+    /*Remove all Enemies*/
+    for (i = 0; i < enemy.length; i++) {
+        enemy.pop();
+    }
+    
+    /*Remove all projectiles*/
+    for (i = 0; i < projectile.length; i++) {
+        projectile.pop();
+    }    
+}
+
