@@ -13,7 +13,21 @@
  */
  
 function checkObstacles() {
+    var i = 0, numProj = 0;
     
+    numPro = projectile.length();
+    
+    /*Determine if the project collided with a wall*/
+    projectile[0].obstaclebounce(path[0]);
+    var end = projectile[0].canvasWallCollision();
+    
+    //console.log(truth +  " "  + projectile[0].dx + " " + projectile[0].dy);
+    if (end == false) {
+        projectile[0].drawProjectile();
+    }
+    else {
+        projectile.pop();
+    }
 }
 
 function checkIntersection2() {

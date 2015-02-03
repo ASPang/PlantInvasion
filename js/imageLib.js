@@ -31,6 +31,8 @@ function imageLib(canvasName, width, height, xPos, yPos) {
     this.startY = yPos;
     this.endX = null;
     this.endY = null;
+    this.slopeX = 0;
+    this.slopeY = 0;
        
     this.image = "";
     this.repeatHor = false;

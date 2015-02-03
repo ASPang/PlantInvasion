@@ -79,13 +79,17 @@ function setupCanvas() {
 
 function setupObstacles() {
     path[0] = new imageLib(backgroundImg.canvasName, 0, 0, -10, 250);
-    path[0].endX = 300,
-    path[0].endY = 600;
+    path[0].endX = 120,
+    path[0].endY = 410;
+    path[0].slopeX = 16/13;
+    path[0].slopeY = 3410/13;
     path[0].drawLine();
 
     path[1] = new imageLib(backgroundImg.canvasName, 0, 0, backgroundImg.canvas.width + 10, 250);
-    path[1].endX = 300; 
-    path[1].endY = 600;
+    path[1].endX = 480; 
+    path[1].endY = 410;
+    path[1].slopeX = -16/13;
+    path[1].slopeY = 3410/13;
     path[1].drawLine();
 }
 

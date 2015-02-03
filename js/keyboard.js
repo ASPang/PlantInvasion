@@ -121,8 +121,13 @@ function spaceBarKeyEvent() {
     var newProj = new physics(backgroundImg.canvasName, 10, 10, 150, 275);
     newProj.dx = -1;
     newProj.dy = 1;
+    newProj.floor = backgroundImg.canvas.height;
+    newProj.ceiling = 0;
+    newProj.rightWall = backgroundImg.canvas.width;
+    newProj.leftWall = 0;
     
     projectile.push(newProj);
     projectile.reverse();
-    setInterval(function(){projectile[0].drawProjectile();},4);
+    
+    setInterval(function(){checkObstacles();},4);
 }
