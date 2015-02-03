@@ -60,7 +60,7 @@ function setupCanvas() {
     backgroundImg.addImg(gameImage.loadedImg["background"]);
     
     /*Draw the character on the screen*/
-//    setupCharacter(gameCanvas);
+    setupCharacter(gameCanvas);
 //    addAliens(gameCanvas);
 //    addCandy(gameCanvas);
 
@@ -100,18 +100,18 @@ function setupObstacles() {
 
 function setupCharacter(gameCanvas) {
     /*Size of character*/
-    var height = 115;
-    var width = 77;
+    var height = 50;
+    var width = 50;
     
     /*Add the character to the canvas*/
-    character = new physics(gameCanvas, width, height, 275, 285);
-    character.addImg(gameImage.loadedImg["character"]);
+    character = new physics(gameCanvas, width, height, 275, 210);
+    character.addImg(gameImage.loadedImg["ship"]);
     
     /*Establishing character jumping capabilities*/
-    character.jumpHeight = 100;
-    character.ground = character.canvas.height - character.height;
-    character.jumpSpeed = 2;
-    character.fallSpeed = 2;
+    //character.jumpHeight = 100;
+    //character.ground = character.canvas.height - character.height;
+    //character.jumpSpeed = 2;
+    //character.fallSpeed = 2;
 }
 
 function addAliens(gameCanvas) {

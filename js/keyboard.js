@@ -90,8 +90,9 @@ function rightArrowKeyEvent() {
     var move = 4;
     
     /*Move background image 5 pixels*/
-    backgroundImg.redraw(backgroundImg.xPos - move, backgroundImg.yPos);
-    candy.redraw(candy.xPos - move, candy.yPos);
+    //backgroundImg.redraw(backgroundImg.xPos - move, backgroundImg.yPos);
+    character.redraw(character.xPos + move, character.yPos);
+    //candy.redraw(candy.xPos - move, candy.yPos);
     
     /*Update alien x Position*/
     moveAliens(4);
@@ -105,11 +106,14 @@ function leftArrowKeyEvent() {
     var move = 4;
     
     /*Move background image 5 pixels*/
-    backgroundImg.redraw(backgroundImg.xPos + move, backgroundImg.yPos);
-    candy.redraw(candy.xPos + move, candy.yPos);
+    //backgroundImg.redraw(backgroundImg.xPos + move, backgroundImg.yPos);
+    character.redraw(character.xPos - move, character.yPos);
+    //candy.redraw(candy.xPos + move, candy.yPos);
+    
      
     /*Update alien x Position*/
-    moveAliens(-3);
+    //moveAliens(-3);
+    //moveCharacter(-5);
     
     /*Update the game window*/
     updateGame();
@@ -118,7 +122,7 @@ function leftArrowKeyEvent() {
 
 function spaceBarKeyEvent() {
     /*Draw the projectile*/
-    var newProj = new physics(backgroundImg.canvasName, 10, 10, 150, 275);
+    var newProj = new physics(backgroundImg.canvasName, 10, 10, character.xPos+25, 275);
     newProj.dx = -1;
     newProj.dy = 1;
     newProj.floor = backgroundImg.canvas.height;

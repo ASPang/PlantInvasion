@@ -55,7 +55,7 @@ function updateGame() {
     
     /*Draw the character*/
 //    character.jump();
-//    character.redraw(character.xPos, character.yPos);
+    character.redraw(character.xPos, character.yPos);
 
     /*Draw the candy*/
 //    candyTime();
