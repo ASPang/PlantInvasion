@@ -61,6 +61,7 @@ function setupCanvas() {
     
     /*Draw the character on the screen*/
     setupCharacter(gameCanvas);
+    addEnemy(gameCanvas);
 //    addAliens(gameCanvas);
 //    addCandy(gameCanvas);
 
@@ -132,6 +133,17 @@ function addAliens(gameCanvas) {
     
     aliens[3] = new physics(gameCanvas, alienWidth, alienHeight, 100, 150);
     aliens[3].addImg(gameImage.loadedImg["alien1"]);
+}
+
+function addEnemy(gameCanvas) {
+    /*Size of plants*/
+    var height = 30;
+    var width = 15;
+    
+    enemy[0] = new physics(gameCanvas, width, height, 50, 100);
+    enemy[0].addImg(gameImage.loadedImg["plant"]);
+    enemy[0].dx = 1;
+    enemy[0].dy = -0.2;
 }
 
 function addCandy(gameCanvas) {

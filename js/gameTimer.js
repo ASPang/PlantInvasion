@@ -61,8 +61,9 @@ function updateGame() {
 //    candyTime();
 //    candy.redraw(candy.xPos, candy.yPos);
     
-    /*Update Alien position*/
+    /*Update Emeny position*/
 //    moveAliens(2);
+    moveEnemies();
         
     /*Check if the image intersects with anything on the canvas*/
 //    checkIntersection();
@@ -85,6 +86,29 @@ function updateGame() {
 //        backgroundImg.canvasCtx.font = "bold 30px Arial";
 //        backgroundImg.canvasCtx.fillText("Survival Time: " + timeRemaining + " Seconds", 125, 220);
 //    }
+}
+
+function moveEnemies() {
+    var i;  //Loop Counter
+    
+    /*Modify every alien image*/
+    for (i = 0; i< enemy.length; i++) {            
+        
+        enemy[i].redraw(enemy[i].xPos + enemy[i].dx , enemy[i].yPos - enemy[i].dy);
+        
+        /*Determine if the alien is off screen*/
+        if ((enemy[i].xPos) < 0) {
+            enemy[i].dx = -enemy[i].dx;
+        }
+        else if ((enemy[i].xPos + enemy[i].width) > backgroundImg.canvas.width) {
+            enemy[i].dx = -enemy[i].dx;
+        }
+        else if ((enemy[i].yPos + enemy[i].height) >= backgroundImg.canvas.height) {
+            endGameFlag = true;
+            enemy[i].dy = 0;
+            enemy[i].dx = 0;
+        }
+    }
 }
 
 function moveAliens(speed) {

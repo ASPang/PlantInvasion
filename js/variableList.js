@@ -23,6 +23,7 @@ var backgroundImg;  //background image
 var character;  //character image
 var candy;  //candy image
 var aliens = [];
+var enemy = [];
 var alienVisibility = 1.0;
 var visible = true;
 

@@ -44,7 +44,6 @@ function checkObstacles() {
             projectile.splice(i,1); //Remove one item from the ith position
             numPro -= 1;
             i--;
-            console.log("HERE");
         }
         else if (i < 0 && numPro <= 0) {
             break;
