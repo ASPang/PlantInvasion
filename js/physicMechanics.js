@@ -71,37 +71,36 @@ physics.prototype.obstaclebounce = function(obstacle) {
     /*if( xPos<0 || xPos>300) dx=-dx; 
     if( yPos<0 || yPos>300) dy=-dy; */
     
-    var dirX = 0, dirY = 0;
+//    var dirX = 0, dirY = 0;
     var x = 0, y = 0;
-    var i = 0, increment = 0, loopEnd = 0;  //Loop counter
+//    var i = 0, increment = 0, loopEnd = 0;  //Loop counter
     
-    /*Get the obstacle direction*/
-    dirX = obstacle.oldPosX - obstacle.xPos; //Math.abs(obstacle.oldPosX - obstacle.xPos); //obstacle.endX - obstacle.startX;
-    dirY = obstacle.oldPosY - obstacle.yPos; //Math.abs(obstacle.oldPosY - obstacle.yPos); //obstacle.endY - obstacle.startY;
+//    /*Get the obstacle direction*/
+//    dirX = obstacle.oldPosX - obstacle.xPos; //Math.abs(obstacle.oldPosX - obstacle.xPos); //obstacle.endX - obstacle.startX;
+//    dirY = obstacle.oldPosY - obstacle.yPos; //Math.abs(obstacle.oldPosY - obstacle.yPos); //obstacle.endY - obstacle.startY;
+//    
+//    x = obstacle.startX;
+//    y = obstacle.startY;
+//    
+//    /*Determine which direction is smaller*/
+//    if(dirX < dirY) {
+//        loopEnd = obstacle.xPos;
+//        increment = Math.abs(dirX);
+//    }
+//    else {
+//        loopEnd = obstacle.yPos;
+//        increment = Math.abs(dirY);
+//    }
     
-    x = obstacle.startX;
-    y = obstacle.startY;
-    
-    /*Determine which direction is smaller*/
-    if(dirX < dirY) {
-        loopEnd = obstacle.xPos;
-        increment = Math.abs(dirX);
-    }
-    else {
-        loopEnd = obstacle.yPos;
-        increment = Math.abs(dirY);
-    }
-    
-    console.log("loopend " + loopEnd + " " + i + " "  + increment);
+    //console.log("loopend " + loopEnd + " " + i + " "  + increment);
     
     x = this.xPos;
     y = Math.abs(obstacle.slopeX * x + obstacle.slopeY);
     
-    console.log("x= " + x + " y = " + y + " "  + " " + Math.ceil(y) + " " + this.yPos);
+    //console.log("x= " + x + " y = " + y + " "  + " " + Math.ceil(y) + " " + this.yPos);
     
     if (Math.ceil(y) == this.yPos || Math.floor(y) == this.yPos || Math.ceil(y-1) == this.yPos || Math.ceil(y+1) == this.yPos || 
             Math.floor(y-1) == this.yPos || Math.floor(y+1) == this.yPos) {
-        console.log("HERE!!!!!!!!!!!!!!!!!!!!!!!!");
         if (obstacle.slopeX < 0) { 
             this.dx = -this.dx + 1;
             this.dy = -this.dy;
@@ -112,31 +111,9 @@ physics.prototype.obstaclebounce = function(obstacle) {
             this.dy = -this.dy;
             //this.xPos += 1;
         }
-    }
-    /*Trace through the path to see if the object hits that obstacle*/
-//    while (i < loopEnd) {
-//        console.log("x " + x + " y " + y);
-//        if (this.xPos > x && this.xPos < x + dirX) {
-//            console.log("x-Post hit!");
-//            this.dx = -this.dx;
-//            
-//            if (this.yPos > y && this.yPos < y + dirY) {
-//                this.dy = -this.dy;
-//                console.log("y-Path hit!");
-//                return true;
-//            }
-//        }
-//        
-//        /*update counters*/
-//        i += increment;
-//        x += dirX;
-//        y += dirY;
-//    }
-    
-    this.canvasWallBounce();
+    }    
     
     return false;
-    
 };
 
 physics.prototype.canvasWallBounce = function() {
@@ -149,15 +126,21 @@ physics.prototype.canvasWallBounce = function() {
 };
     
 physics.prototype.canvasWallCollision = function() {
-    if ( this.xPos < this.leftWall || this.xPos > this.rightWall ) {
-        return true;
+    if ( this.xPos < this.leftWall) {
+        return "left";
+    }
+    else if (this.xPos > this.rightWall) {
+        return "right";
     } 
-    else if (this.yPos < this.ceiling || this.yPos > this.floor) {
-        return true;
+    else if (this.yPos < this.ceiling) {
+        return "top";
+    }
+    else if (this.yPos > this.floor) {
+        return "bottom";
     }
     
-    return false;
-}
+    return "null";
+};
 
 
 

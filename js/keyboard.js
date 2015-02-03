@@ -127,7 +127,7 @@ function spaceBarKeyEvent() {
     newProj.leftWall = 0;
     
     projectile.push(newProj);
-    projectile.reverse();
+    //projectile.reverse();
     
     setInterval(function(){checkObstacles();},4);
 }

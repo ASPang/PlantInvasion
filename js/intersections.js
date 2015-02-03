@@ -13,20 +13,34 @@
  */
  
 function checkObstacles() {
-    var i = 0, numProj = 0;
+    var i = 0, numPro = 0;
     
-    numPro = projectile.length();
-    
-    /*Determine if the project collided with a wall*/
-    projectile[0].obstaclebounce(path[0]);
-    var end = projectile[0].canvasWallCollision();
-    
-    //console.log(truth +  " "  + projectile[0].dx + " " + projectile[0].dy);
-    if (end == false) {
-        projectile[0].drawProjectile();
-    }
-    else {
-        projectile.pop();
+    numPro = projectile.length;
+    for (i = 0; i < numPro; i++) {
+        console.log(i + " " + numPro);
+        /*Determine if the project collided with a wall*/
+        projectile[i].obstaclebounce(path[0]);
+        var end = projectile[0].canvasWallCollision();
+        //console.log(end);
+        //console.log(truth +  " "  + projectile[0].dx + " " + projectile[0].dy);
+        /*Determine if the projectile hit a wall*/
+        if (end != "bottom" && end == "null") {
+            /*Draw projectile*/
+            projectile[i].drawProjectile();
+        }
+        else if (i >= 0 && numPro > 0){
+            /*Remove projectile from the array*/
+            //projectile.pop();
+            projectile.splice(i,1); //Remove one item from the ith position
+            numPro -= 1;
+            i--;
+            console.log("HERE");
+        }
+        else if (i < 0 && numPro <= 0) {
+            break;
+        }
+        /*Shift array position for next projectile*/
+        //projectile.shift();
     }
 }
 

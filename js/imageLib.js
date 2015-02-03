@@ -149,7 +149,7 @@ imageLib.prototype.drawLine = function() {
 
 imageLib.prototype.drawProjectile = function() {
     /*Clear the canvas*/
-    //backgroundImg.clearCanvas();
+    backgroundImg.clearCanvas();
     var radius = this.radius;
     
     this.canvasCtx.beginPath();
