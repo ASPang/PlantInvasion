@@ -46,7 +46,7 @@ function preloadGameImages() {
 
 function setupCanvas() {
     var gameCanvas = "gameCanvas";
-    backgroundImg = new imageLib(gameCanvas, 50, 400, 50, 0);
+    backgroundImg = new imageLib(gameCanvas, 600, 400, 0, 0);
     
     /*Add background image to canvas*/
     backgroundImg.addImg(gameImage.loadedImg["background"]);
@@ -61,9 +61,9 @@ function setupCanvas() {
 
 
 function setupObstacles() {
-    path[0] = new imageLib(backgroundImg.canvasName, 0, 0, -10, 250);
-    path[0].endX = 120,
-    path[0].endY = 410;
+    path[0] = new imageLib(backgroundImg.canvasName, 0, 0, 0, 0);
+    path[0].endX = 0,
+    path[0].endY = 0;
     path[0].slopeX = 16/13;
     path[0].slopeY = 3410/13;
     path[0].drawLine();
@@ -79,7 +79,7 @@ function setupObstacles() {
 function setupCharacter(gameCanvas) {
     /*Size of character*/
     var height = 50;
-    var width = 50;
+    var width = 100;
     
     /*Add the character to the canvas*/
     character = new physics(gameCanvas, width, height, 275, 210);
@@ -88,8 +88,8 @@ function setupCharacter(gameCanvas) {
 
 function addEnemy(gameCanvas) {
     /*Size of plants*/
-    var height = 30;
-    var width = 15;
+    var height = 40;
+    var width = 20;
     
     enemy[0] = new physics(gameCanvas, width, height, 50, 100);
     enemy[0].addImg(gameImage.loadedImg["plant"]);

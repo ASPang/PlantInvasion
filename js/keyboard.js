@@ -25,7 +25,7 @@ function keyDownEvent(e) {
     var avl;    //Non-empty space
     var noBlock;    //Empty Space
     
-    //e.preventDefault();   //TESTING!!!! - DISABLED DURING DEVELOPMENT
+    e.preventDefault();   //TESTING!!!! - DISABLED DURING DEVELOPMENT
     
     /*Determine if the game over flag as been set*/
     if (endGameFlag == true) { 
