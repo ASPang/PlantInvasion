@@ -95,7 +95,7 @@ physics.prototype.obstaclebounce = function(obstacle) {
     //console.log("loopend " + loopEnd + " " + i + " "  + increment);
     
     x = this.xPos;
-    y = Math.abs(obstacle.slopeX * x + obstacle.slopeY);
+    y = obstacle.slopeX * x + obstacle.slopeY;
     
     //console.log("x= " + x + " y = " + y + " "  + " " + Math.ceil(y) + " " + this.yPos);
     
@@ -111,31 +111,77 @@ physics.prototype.obstaclebounce = function(obstacle) {
             this.dy = -this.dy;
             //this.xPos += 1;
         }
+        console.log("JFLSJDF");
     }    
+    
+    this.canvasWallBounce();
     
     return false;
 };
 
 physics.prototype.canvasWallBounce = function() {
-    if ( this.xPos < this.leftWall || this.xPos > this.rightWall ) {
-        this.dx = -this.dx;
-    } 
-    else if (this.yPos < this.ceiling || this.yPos > this.floor) {
-        this.dy = -this.dy;
+    if (this.leftWall != null) {
+        if (this.xPos < this.leftWall) {
+            this.dx = -this.dx;
+        }
     }
+    if (this.rightWall != null) {
+        if (this.xPos > this.rightWall) {
+            this.dx = -this.dx;
+        }
+    }
+    if (this.ceiling != null) {
+        if (this.yPos < this.ceiling) {
+            this.dy = -this.dy;
+        }
+    }
+    if (this.floor != null){
+        if (this.yPos > this.floor) {
+            console.log("WALLYYYYYYYYYY");
+            this.dy = -this.dy;
+        }
+    }
+    
+//    if (((this.xPos <= this.leftWall)  && (this.leftWall != null)) || ((this.xPos >= this.rightWall) && (this.rightWall != null))) {
+//        console.log("WALLX");
+//        this.dx = -this.dx;
+//        this.dy = -this.dy;
+//    } 
+//    if (((this.yPos <= this.ceiling) && (this.ceiling != null)) || ((this.yPos >= this.floor) && (this.floor != null))) {
+//        this.dx = -this.dx;
+//        this.dy = -this.dy;
+//        console.log("WALLYYYYYYYYYY");
+//    }
+    
+//    if (((this.xPos <= this.leftWall) ) || ((this.xPos >= this.rightWall) )) {
+//        console.log("WALLX");
+//        this.dx = -this.dx;
+//        //this.dy = -this.dy;
+//    } 
+//    if (((this.yPos <= this.ceiling) ) || ((this.yPos >= this.floor) )) {
+//        //this.dx = -this.dx;
+//        console.log("WALLYYYYYYYYYY" + this.dy);
+//        this.dy = -this.dy;
+//        console.log("-------->>>>>>>" + this.dy);
+//    }
 };
     
 physics.prototype.canvasWallCollision = function() {
-    if ( this.xPos < this.leftWall) {
+    var leftWall = 0;
+    var rightWall = this.canvas.width;
+    var floor = this.canvas.height;
+    var ceiling = 0;
+    
+    if ( this.xPos < leftWall) {
         return "left";
     }
-    else if (this.xPos > this.rightWall) {
+    else if (this.xPos > rightWall) {
         return "right";
     } 
-    else if (this.yPos < this.ceiling) {
+    else if (this.yPos < ceiling) {
         return "top";
     }
-    else if (this.yPos > this.floor) {
+    else if (this.yPos > floor) {
         return "bottom";
     }
     

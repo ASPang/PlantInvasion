@@ -122,12 +122,13 @@ function spaceBarKeyEvent() {
     newProj.dx = -1;
     newProj.dy = 1;
     newProj.floor = backgroundImg.canvas.height;
-    newProj.ceiling = 0;
-    newProj.rightWall = backgroundImg.canvas.width;
-    newProj.leftWall = 0;
+//    newProj.ceiling = 0;
+//    newProj.rightWall = backgroundImg.canvas.width;
+//    newProj.leftWall = 0;
     
     projectile.push(newProj);
     //projectile.reverse();
     
-    setInterval(function(){checkObstacles();},4);
+    //setInterval(function(){checkObstacles();},4);
+    updateGame();
 }

@@ -25,6 +25,9 @@ function initGame() {
      
     /*Display the board*/
     setupCanvas();
+    
+    /*TESTING!!!!!!! --  SHOULDN'T BE HERE*/
+    startTimer();
 }
 
 /*Initialize the canvas*/
@@ -54,7 +57,7 @@ function setupCanvas() {
     
     /*Add background image to canvas*/
 //    backgroundImg.repeatHor = true; //Repeat the background
-//    backgroundImg.addImg(gameImage.loadedImg["background1"]);
+    backgroundImg.addImg(gameImage.loadedImg["background"]);
     
     /*Draw the character on the screen*/
 //    setupCharacter(gameCanvas);

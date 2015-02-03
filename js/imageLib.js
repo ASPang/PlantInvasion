@@ -84,7 +84,7 @@ imageLib.prototype.clearCanvas = function() {
 
 imageLib.prototype.redraw = function(newPosX, newPosY) {
     /*Redraw new image*/
-    this.canvasCtx.drawImage(this.image, newPosX, newPosY,  this.width, this.height)
+    this.canvasCtx.drawImage(this.image, newPosX, newPosY,  this.width, this.height);
     
     /*Update related image information*/
     this.xPos = newPosX;
@@ -148,8 +148,6 @@ imageLib.prototype.drawLine = function() {
 };
 
 imageLib.prototype.drawProjectile = function() {
-    /*Clear the canvas*/
-    backgroundImg.clearCanvas();
     var radius = this.radius;
     
     this.canvasCtx.beginPath();

@@ -22,66 +22,69 @@ var milSec = 1000;
 function startTimer() { //TESTING!!!!!!!!!!!! - DISABLED FOR DEVELOPMENT
 //   clearInterval(gameTimer);
 //   startClock = new Date().getTime();
-//   var oneSec = 30;
+   var oneSec = 30;
 // 
 //   gameTimer = setInterval(function(){updateGame();}, oneSec);     
 // 
 //    /*Initiate game*/
 //    initGame();
-//    endGameFlag = false;    
+//    endGameFlag = false;
+    setInterval(function(){updateGame();}, oneSec);     
 }
 
 
 function updateGame() {
-    var i;  //Loop counter
-    var countDownTime = 60;
+//    var i;  //Loop counter
+//    var countDownTime = 60;
     
     /*Calculate time lapse*/
     //var timeRemaining = Math.round(countDownTime - (new Date().getTime() - startClock) / milSec);
-    var timeRemaining = Math.round((new Date().getTime() - startClock) / milSec);
+//    var timeRemaining = Math.round((new Date().getTime() - startClock) / milSec);
 
     /*Clear the canvas*/
     backgroundImg.clearCanvas();
     
     /*Draw the background*/
     backgroundImg.redraw(backgroundImg.xPos, backgroundImg.yPos);
+    redrawPaths();
     
     /*Draw gameplay information*/
-    backgroundImg.canvasCtx.fillStyle = "yellow";
-    backgroundImg.canvasCtx.font = "bold 14px Arial";
-    backgroundImg.canvasCtx.fillText("Survival Time: " + timeRemaining + " Seconds", 1, 14);
+//    backgroundImg.canvasCtx.fillStyle = "yellow";
+//    backgroundImg.canvasCtx.font = "bold 14px Arial";
+//    backgroundImg.canvasCtx.fillText("Survival Time: " + timeRemaining + " Seconds", 1, 14);
     
     /*Draw the character*/
-    character.jump();
-    character.redraw(character.xPos, character.yPos);
+//    character.jump();
+//    character.redraw(character.xPos, character.yPos);
 
     /*Draw the candy*/
-    candyTime();
-    candy.redraw(candy.xPos, candy.yPos);
+//    candyTime();
+//    candy.redraw(candy.xPos, candy.yPos);
     
     /*Update Alien position*/
-    moveAliens(2);
+//    moveAliens(2);
         
     /*Check if the image intersects with anything on the canvas*/
-    checkIntersection();
-    foundCandy();
+//    checkIntersection();
+//    foundCandy();
+    checkObstacles();
     
     /*Determine if the game over flag as been set*/
-    if (endGameFlag == true) { //|| timeRemaining <= 0) {
-        clearInterval(gameTimer);
-                
-        /*Show all aliens*/ 
-        for (i = 0; i< aliens.length; i++) {                        
-            aliens[i].redraw(aliens[i].xPos, aliens[i].yPos);
-        }
-        
-        /*Inform the user that they lost*/
-        backgroundImg.canvasCtx.fillStyle = "red";
-        backgroundImg.canvasCtx.font = "bold 60px Arial";
-        backgroundImg.canvasCtx.fillText("GAME OVER", 125, 160);
-        backgroundImg.canvasCtx.font = "bold 30px Arial";
-        backgroundImg.canvasCtx.fillText("Survival Time: " + timeRemaining + " Seconds", 125, 220);
-    }
+//    if (endGameFlag == true) { //|| timeRemaining <= 0) {
+//        clearInterval(gameTimer);
+//                
+//        /*Show all aliens*/ 
+//        for (i = 0; i< aliens.length; i++) {                        
+//            aliens[i].redraw(aliens[i].xPos, aliens[i].yPos);
+//        }
+//        
+//        /*Inform the user that they lost*/
+//        backgroundImg.canvasCtx.fillStyle = "red";
+//        backgroundImg.canvasCtx.font = "bold 60px Arial";
+//        backgroundImg.canvasCtx.fillText("GAME OVER", 125, 160);
+//        backgroundImg.canvasCtx.font = "bold 30px Arial";
+//        backgroundImg.canvasCtx.fillText("Survival Time: " + timeRemaining + " Seconds", 125, 220);
+//    }
 }
 
 function moveAliens(speed) {
@@ -155,4 +158,13 @@ function convertMilSecToSec(milSec) {
     var sec = 1000;
     
     return milSec / sec;
+}
+
+function redrawPaths() {
+    var i = 0, numPaths;
+    
+    numPaths = path.length;
+    for (i = 0; i < numPaths; i++) {
+        path[i].drawLine();
+    }
 }

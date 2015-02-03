@@ -14,18 +14,28 @@
  
 function checkObstacles() {
     var i = 0, numPro = 0;
+    var w = 0, numPaths = 0;
     
     numPro = projectile.length;
+    numPaths = path.length;
+    
     for (i = 0; i < numPro; i++) {
-        console.log(i + " " + numPro);
+        //console.log(i + " " + numPro);
         /*Determine if the project collided with a wall*/
-        projectile[i].obstaclebounce(path[0]);
-        var end = projectile[0].canvasWallCollision();
-        //console.log(end);
+        for (w = 0; w < numPaths; w++) {
+            projectile[i].obstaclebounce(path[w]);
+        }
+        
+        var end = projectile[i].canvasWallCollision();
+        console.log(end);
         //console.log(truth +  " "  + projectile[0].dx + " " + projectile[0].dy);
         /*Determine if the projectile hit a wall*/
-        if (end != "bottom" && end == "null") {
+        if (end == "null") {
             /*Draw projectile*/
+            projectile[i].drawProjectile();
+        }
+        else if (end == "bottom") {
+            projectile[i].dy *= -1;
             projectile[i].drawProjectile();
         }
         else if (i >= 0 && numPro > 0){
